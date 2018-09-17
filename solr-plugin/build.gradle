@@ -1,14 +1,136 @@
-group 'com.lsharma.deng'
-version '1.0-SNAPSHOT'
+description 'Customisation/Plugins of solr project'
 
-apply plugin: 'java'
+buildscript {
+    repositories { mavenCentral() }
+    dependencies {
+        classpath 'org.ajoberstar:gradle-git:0.8.0'
+    }
+}
 
-sourceCompatibility = 1.8
+import org.ajoberstar.grgit.*
+import org.eclipse.jgit.revwalk.RevCommit
+import org.eclipse.jgit.lib.Repository
+import org.eclipse.jgit.api.Git
+import java.text.SimpleDateFormat
+import groovy.json.JsonBuilder
+
 
 repositories {
-    mavenCentral()
+    jcenter()
+    mavenLocal()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile("com.sangupta:bloomfilter:0.9.0")
+    compile("com.nicholasding:solr-lemmatizer:1.0.0"){
+        exclude group: 'org.apache.lucene'
+    }
+    compile("org.apache.solr:solr-ltr:${solrVersion}") {
+        transitive = false
+    }
+
+    compileOnly("org.apache.solr:solr-core:${solrVersion}")
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    compileOnly("com.carrotsearch:hppc:${carrotsearchVersion}")
+    testCompile("org.projectlombok:lombok:${lombokVersion}")
+    testCompile(
+            [group: 'org.apache.solr', name: 'solr-core', version: solrVersion],
+            [group: 'junit', name: 'junit', version: junitVersion],
+            [group: 'org.hamcrest', name: 'hamcrest-all', version: hamcrestVersion]
+    )
+}
+
+apply plugin: 'checkstyle'
+
+checkstyle {
+    configFile = file("${project.rootProject.projectDir}/gradle/config/checkstyle/checkstyle.xml")
+    toolVersion = '6.16.1'
+    sourceSets = [project.sourceSets.main]
+}
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+//apply plugin: 'findbugs'
+//
+//findbugs {
+//    sourceSets = [sourceSets.main]
+//    excludeFilter = file("$project.projectDir/findbugsExclude.xml")
+//}
+//tasks.withType(FindBugs) {
+//    reports {
+//        xml.enabled = false
+//        html.enabled = true
+//    }
+//}
+
+apply plugin: 'pmd'
+pmd {
+    ignoreFailures = false
+    rulePriority = 2
+    ruleSetFiles = files("${project.rootProject.projectDir}/gradle/config/pmd/PMD_Ruleset.xml")
+    sourceSets = [sourceSets.main]
+}
+tasks.withType(Pmd) {
+    reports {
+        html.enabled = true
+        xml.enabled = false
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+jar {
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task("saveGitLogToJson") {
+    doLast {
+        def resourcesDir = new File(project.buildDir.absolutePath + '/resources/main')
+        if (!resourcesDir.exists()) {
+            resourcesDir.mkdirs()
+        }
+        def gitLogFile = new File(resourcesDir, 'gitLog.json')
+
+        def grgit=Grgit.open(project.file('../.'))
+        def branchName = grgit.branch.getCurrent().fullName
+        Repository repo = grgit.repository.jgit.getRepository()
+        Git git = new Git(repo)
+        //commits of current branch
+        Iterable<RevCommit> commits = git.log().add(repo.resolve(branchName)).addPath(project.name).call()
+
+        //print commits to file. Do not format text within """
+        def commitNumber = 0
+        def dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm")
+        def commitList = []
+        for (RevCommit commit : commits) {
+            commitList.add([
+                    "HEAD~": commitNumber++,
+                    Commit: commit.name,
+                    Author: commit.authorIdent.name + ", " + commit.authorIdent.emailAddress,
+                    Date: dateFormat.format(new Date(commit.getCommitTime() * 1000L)),
+                    Message: commit.fullMessage
+            ])
+        }
+        gitLogFile.write(new JsonBuilder(commitList).toPrettyString())
+        git.close()
+        println "Saved git log to file"
+    }
+}
+
+classes.doLast {
+    tasks.saveGitLogToJson.execute()
 }

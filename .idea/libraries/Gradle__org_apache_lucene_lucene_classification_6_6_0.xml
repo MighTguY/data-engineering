@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.lucene:lucene-classification:6.6.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-classification/6.6.0/9b81550fc7cfb6a56944dc0c5efc6d1e36072ddb/lucene-classification-6.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-classification/6.6.0/4a7cac40a8bbc8d95a6561a793d492f1b0cef122/lucene-classification-6.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sangupta:murmur:1.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sangupta/murmur/1.0.0/980d8730e6fd22bcdf82012e2bd9c00f710470ac/murmur-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sangupta/murmur/1.0.0/3eff6d6b8acd344be706802c5228186af1d4cc77/murmur-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

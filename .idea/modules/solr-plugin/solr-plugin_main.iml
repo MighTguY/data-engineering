@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id=":solr-plugin:main" external.linked.project.path="$MODULE_DIR$/../../../solr-plugin" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.lsharma.deng" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":solr-plugin:main" external.linked.project.path="$MODULE_DIR$/../../../solr-plugin" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.jcpenney.search" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../../solr-plugin/out/production/classes" />
     <exclude-output />
@@ -9,5 +9,101 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: com.sangupta:bloomfilter:0.9.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.nicholasding:solr-lemmatizer:1.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.solr:solr-ltr:6.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.sangupta:murmur:1.0.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.5.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-expressions:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-analyzers-common:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-sandbox:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-suggest:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.solr:solr-solrj:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.carrotsearch:hppc:0.7.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-grouping:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-memory:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-collections:commons-collections:3.2.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-configuration:commons-configuration:1.6" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-io:commons-io:2.5" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: dom4j:dom4j:1.6.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-spatial-extras:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.dropwizard.metrics:metrics-jvm:3.2.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: joda-time:joda-time:2.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.5.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.calcite.avatica:avatica-core:1.9.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.5.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-smile:2.5.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.github.ben-manes.caffeine:caffeine:2.4.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-join:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.tdunning:t-digest:3.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-cli:commons-cli:1.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.httpcomponents:httpmime:4.4.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.htrace:htrace-core:3.2.0-incubating" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.janino:janino:2.7.6" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.woodstox:stax2-api:3.1.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-fileupload:commons-fileupload:1.3.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-jmx:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-rewrite:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-security:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: info.ganglia.gmetric4j:gmetric4j:1.0.7" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.dropwizard.metrics:metrics-core:3.2.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.dropwizard.metrics:metrics-ganglia:3.2.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.dropwizard.metrics:metrics-graphite:3.2.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.dropwizard.metrics:metrics-jetty9:3.2.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.slf4j:slf4j-api:1.7.7" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.7" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.16.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: net.hydromatic:eigenbase-properties:1.1.5" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.antlr:antlr4-runtime:4.5.1-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.calcite:calcite-core:1.11.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.calcite:calcite-linq4j:1.11.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.hadoop:hadoop-hdfs:2.7.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.commons:commons-exec:1.3" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.curator:curator-client:2.8.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.curator:curator-framework:2.8.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.curator:curator-recipes:2.8.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.hadoop:hadoop-annotations:2.7.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.hadoop:hadoop-auth:2.7.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.hadoop:hadoop-common:2.7.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.google.guava:guava:14.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.httpcomponents:httpclient:4.4.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.google.protobuf:protobuf-java:3.1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-highlighter:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.httpcomponents:httpcore:4.4.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.zookeeper:zookeeper:3.4.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.janino:commons-compiler:2.7.6" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-analyzers-phonetic:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-misc:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.woodstox:woodstox-core-asl:4.4.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-continuation:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-deploy:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-http:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-io:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-analyzers-kuromoji:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-backward-codecs:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-classification:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-server:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-servlet:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-servlets:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-util:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-webapp:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-xml:9.3.14.v20161028" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.locationtech.spatial4j:spatial4j:0.6" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.noggit:noggit:0.6" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.ow2.asm:asm:5.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.ow2.asm:asm-commons:5.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.restlet.jee:org.restlet:2.3.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.restlet.jee:org.restlet.ext.servlet:2.3.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.solr:solr-core:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-codecs:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-core:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-queryparser:6.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.lucene:lucene-queries:6.6.0" level="project" />
   </component>
 </module>

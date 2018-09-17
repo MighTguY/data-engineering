@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.calcite.avatica:avatica-core:1.9.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.calcite.avatica/avatica-core/1.9.0/c16b346eef02495f2f4b429fe04c33e526ec0229/avatica-core-1.9.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.calcite.avatica/avatica-core/1.9.0/6bfe03f13277889f137ffe04f2a49cdcd9a96a36/avatica-core-1.9.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

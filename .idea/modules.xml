@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-engineering.iml" filepath="$PROJECT_DIR$/.idea/modules/data-engineering.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-engineering_main.iml" filepath="$PROJECT_DIR$/.idea/modules/data-engineering_main.iml" group="data-engineering" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-engineering_test.iml" filepath="$PROJECT_DIR$/.idea/modules/data-engineering_test.iml" group="data-engineering" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/solr-plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/solr-plugin.iml" group="solr-plugin" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/solr-plugin/solr-plugin_main.iml" filepath="$PROJECT_DIR$/.idea/modules/solr-plugin/solr-plugin_main.iml" group="solr-plugin" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/solr-plugin/solr-plugin_test.iml" filepath="$PROJECT_DIR$/.idea/modules/solr-plugin/solr-plugin_test.iml" group="solr-plugin" />

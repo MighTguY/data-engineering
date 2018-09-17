@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2017 JCPenney Co. All rights reserved.
  */
+
 buildscript {
     repositories {
         mavenLocal()
@@ -22,19 +23,155 @@ plugins {
 
 import org.ajoberstar.grgit.Grgit
 
-release {
-    grgit = Grgit.open(project.file('.'))
-}
-
-
 group 'com.lsharma.deng'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
 
-sourceCompatibility = 1.8
+ext.libraries = [
 
+        'spring-boot': [
+                [group: 'org.springframework.boot', name: 'spring-boot-starter-web'],
+                [group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'],
+                [group: 'org.springframework.boot', name: 'spring-boot-starter-cache'],
+                [group: 'org.springframework.boot', name: 'spring-boot-starter-jetty'],
+                [group: 'org.springframework.cloud', name: 'spring-cloud-starter-security', version: '1.2.1.RELEASE'],
+                [group: 'org.springframework.cloud', name: 'spring-cloud-starter-oauth2', version: '1.2.1.RELEASE']
+        ],
+        'spring-cloud-service-discovery-client': [
+                [group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka', version: '1.2.1.RELEASE'],
+                [group: 'org.springframework.cloud', name: 'spring-cloud-netflix-hystrix-stream', version: '1.2.1.RELEASE']
+        ],
+        'spring-cloud-config-client'           : [
+                [group: 'org.springframework.cloud', name: 'spring-cloud-config-client', version: '1.2.1.RELEASE'],
+                [group: 'org.springframework.boot', name: 'spring-boot-starter-aop'],
+                [group: 'org.springframework.retry', name: 'spring-retry']
+        ],
+        'spring-cloud-bus'                     : [
+                [group: 'org.springframework.cloud', name: 'spring-cloud-starter-bus-amqp', version: '1.2.1.RELEASE']
+        ],
+        'caching'                              : [
+                [group: 'net.sf.ehcache', name: 'ehcache']
+        ],
+        'springfox-swagger'                    : [
+                [group: 'io.springfox', name: 'springfox-swagger2', version: properties.'swagger.version']
+        ],
+        'spring-batch'                         : [
+                [group: 'org.springframework', name: 'spring-core'],
+                [group: 'org.springframework', name: 'spring-oxm'],
+                [group: 'org.springframework', name: 'spring-web'],
+                [group: 'org.springframework.batch', name: 'spring-batch-core'],
+                [group: 'org.springframework.batch', name: 'spring-batch-infrastructure']
+        ],
+        'mail-api'                             : [
+                [group: 'com.sun.mail', name: 'javax.mail', version: '1.5.5'],
+                [group: 'org.springframework.integration', name: 'spring-integration-mail', version: '4.3.2.RELEASE']
+        ],
+        'http-client'                          : [
+                [group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2']
+        ],
+        'joda-time'                            : [
+                [group: 'joda-time', name: 'joda-time', version: '2.3']
+        ],
+        'solr-solrj'                           : [
+                [group: 'org.apache.solr', name: 'solr-solrj', version: '6.6.0'],
+                [group: 'org.apache.solr', name: 'solr-test-framework', version: '6.6.0']
+        ],
+        'logback-access'                       : [
+                [group: 'ch.qos.logback', name: 'logback-access', version: '1.1.6']
+        ],
+        'spring-batch-testing'                 : [
+                [group: 'org.springframework.batch', name: 'spring-batch-test', version: '2.2.0.RELEASE']
+        ],
+        'unit-testing'                         : [
+                [group: 'org.springframework.boot', name: 'spring-boot-starter-test']
+        ]
+]
 
+subprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2" }
+    }
+
+    group 'com.jcpenney.search'
+
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'license-report'
+
+    if (Boolean.valueOf(enable_clover)) {
+        apply plugin: 'com.bmuschko.clover'
+
+        sonarqube {
+            properties {
+                property "sonar.dynamicAnalysis", "reuseReports"
+                property "sonar.clover.reportPath", "${project.reporting.baseDir}/clover/clover.xml"
+            }
+        }
+
+        dependencies {
+            clover 'org.openclover:clover:4.2.0'
+        }
+
+        clover {
+            instrumentLambda = "block"
+            report {
+                html = true
+                xml = true
+            }
+        }
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                // define artifact that will be used for publishing
+                artifact jar
+            }
+        }
+    }
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    install.dependsOn assemble
+    uploadArchives.dependsOn assemble
+
+    defaultTasks 'clean', 'build'
+}
+
+task prepareLicenseReport(type: org.gradle.api.tasks.Exec) {
+    //on linux
+    commandLine "${projectDir.path}/create_dependency.sh"
+    args "${project.buildDir}/reports/license/"
+}
+
+task createLicenseReport(type: org.gradle.api.tasks.bundling.Zip, dependsOn: prepareLicenseReport) {
+    baseName = "${project.name}"
+    destinationDir = file("${project.buildDir}")
+    archiveName = "license-${project.name}-${project.version}.zip"
+    from("${project.buildDir}/reports/license")
+    include "${project.name}/**/*"
+    include "report.html"
+}
+
+gradle.afterProject { project, projectState ->
+    if (project.tasks.findAll { it.name == 'reportLicenses' }) {
+        prepareLicenseReport.dependsOn(project.reportLicenses)
+    }
+}
+
+task reportLicenses << {
+}
 
 
 println "hello, World!"
